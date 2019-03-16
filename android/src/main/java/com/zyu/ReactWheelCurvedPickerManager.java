@@ -81,6 +81,13 @@ public class ReactWheelCurvedPickerManager extends SimpleViewManager<ReactWheelC
         }
     }
 
+    @ReactProp(name="enableSeparatorShader")
+    public void setEnableSeparatorShader(ReactWheelCurvedPicker picker, Boolean value) {
+        if (picker != null) {
+            picker.setEnableSeparatorShader(value);
+        }
+    }
+
     @ReactProp(name="textSize")
     public void setTextSize(ReactWheelCurvedPicker picker, int size) {
         if (picker != null) {

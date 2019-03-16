@@ -28,6 +28,7 @@ public class ReactWheelCurvedPicker extends WheelCurvedPicker {
     private final EventDispatcher mEventDispatcher;
     private List<Integer> mValueData;
     private Integer mSeparatorColor;
+    private Boolean mEnableSeparatorShader;
 
     public ReactWheelCurvedPicker(ReactContext reactContext) {
         super(reactContext);
@@ -63,8 +64,10 @@ public class ReactWheelCurvedPicker extends WheelCurvedPicker {
             paint.setColor(mSeparatorColor);
             colorTo = mSeparatorColor;
         }
-        LinearGradient linearGradientShader = new LinearGradient(rectCurItem.left, rectCurItem.top, rectCurItem.right/2, rectCurItem.top, colorFrom, colorTo, Shader.TileMode.MIRROR);
-        paint.setShader(linearGradientShader);
+        if (mEnableSeparatorShader) {
+            LinearGradient linearGradientShader = new LinearGradient(rectCurItem.left, rectCurItem.top, rectCurItem.right/2, rectCurItem.top, colorFrom, colorTo, Shader.TileMode.MIRROR);
+            paint.setShader(linearGradientShader);
+        }
         canvas.drawLine(rectCurItem.left, rectCurItem.top, rectCurItem.right, rectCurItem.top, paint);
         canvas.drawLine(rectCurItem.left, rectCurItem.bottom, rectCurItem.right, rectCurItem.bottom, paint);
     }
@@ -86,6 +89,10 @@ public class ReactWheelCurvedPicker extends WheelCurvedPicker {
 
     public void setSeparatorColor(Integer color) {
         mSeparatorColor = color;
+    }
+
+    public void setEnableSeparatorShader(Boolean value) {
+        mEnableSeparatorShader = value;
     }
 }
 

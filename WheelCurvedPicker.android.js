@@ -23,6 +23,7 @@ const WheelCurvedPickerNativeInterface = {
 		onValueChange: PropTypes.func,
 		selectedValue: PropTypes.any,
 		selectedIndex: PropTypes.number,
+		enableSeparatorShader: PropTypes.bool,
 	}
 }
 
@@ -50,6 +51,8 @@ class WheelCurvedPicker extends React.Component {
 		selectedValue: PropTypes.any,
 
 		selectedIndex: PropTypes.number,
+
+		enableSeparatorShader: PropTypes.bool,
 	}
 
 	constructor(props){
@@ -59,7 +62,8 @@ class WheelCurvedPicker extends React.Component {
 
 	static defaultProps = {
 		itemStyle : {color:"white", fontSize:26},
-		itemSpace: 20
+		itemSpace: 20,
+		enableSeparatorShader: true,
 	}
 
 	componentWillReceiveProps (props) {
@@ -79,8 +83,9 @@ class WheelCurvedPicker extends React.Component {
 		var textSize = props.itemStyle.fontSize
 		var textColor = props.itemStyle.color
 		var separatorColor = props.itemStyle.separatorColor
+		var enableSeparatorShader = props.enableSeparatorShader
 
-		return {selectedIndex, items, textSize, textColor, separatorColor};
+		return {selectedIndex, items, textSize, textColor, separatorColor, enableSeparatorShader};
 	}
 
 	_onValueChange = (e) => {
@@ -97,6 +102,7 @@ class WheelCurvedPicker extends React.Component {
 				textColor={this.state.textColor}
 				textSize={this.state.textSize}
 				separatorColor={this.state.separatorColor}
+				enableSeparatorShader={this.state.enableSeparatorShader}
 				selectedIndex={parseInt(this.state.selectedIndex)} />;
 	}
 }
