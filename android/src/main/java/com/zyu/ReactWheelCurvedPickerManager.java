@@ -29,6 +29,7 @@ public class ReactWheelCurvedPickerManager extends SimpleViewManager<ReactWheelC
         ReactWheelCurvedPicker picker = new ReactWheelCurvedPicker(reactContext);
         picker.setTextColor(Color.LTGRAY);
         picker.setCurrentTextColor(Color.WHITE);
+        picker.setSeparatorColor(Color.WHITE);
         picker.setTextSize(DEFAULT_TEXT_SIZE);
         picker.setItemSpace(DEFAULT_ITEM_SPACE);
 
@@ -70,6 +71,13 @@ public class ReactWheelCurvedPickerManager extends SimpleViewManager<ReactWheelC
         if (picker != null) {
             picker.setCurrentTextColor(color);
             picker.setTextColor(color);
+        }
+    }
+
+    @ReactProp(name="separatorColor", customType = "Color")
+    public void setSeparatorColor(ReactWheelCurvedPicker picker, Integer color) {
+        if (picker != null) {
+            picker.setSeparatorColor(color);
         }
     }
 
