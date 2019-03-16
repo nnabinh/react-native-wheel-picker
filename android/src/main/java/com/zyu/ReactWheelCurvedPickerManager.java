@@ -95,6 +95,13 @@ public class ReactWheelCurvedPickerManager extends SimpleViewManager<ReactWheelC
         }
     }
 
+    @ReactProp(name="textAlign")
+    public void setTextAlign(ReactWheelCurvedPicker picker, String align) {
+        if (picker != null) {
+            picker.setTextAlign(align);
+        }
+    }
+
     @ReactProp(name="itemSpace")
     public void setItemSpace(ReactWheelCurvedPicker picker, int space) {
         if (picker != null) {

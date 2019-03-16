@@ -79,6 +79,20 @@ public class ReactWheelCurvedPicker extends WheelCurvedPicker {
 		mHandler.post(this);
     }
 
+    public void setTextAlign(String align) {
+        switch(align) {
+            case "left":
+                mTextPaint.setTextAlign(Paint.Align.LEFT);
+                break;
+            case "right":
+                mTextPaint.setTextAlign(Paint.Align.RIGHT);
+                break;
+            case "center":
+                mTextPaint.setTextAlign(Paint.Align.CENTER);
+                break;
+        }
+    }
+
     public void setValueData(List<Integer> data) {
         mValueData = data;
     }
